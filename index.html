@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SaúdeIngá — protótipo acadêmico para organização de filas na saúde pública.">
+  <title>SaúdeIngá | Gestão inteligente de atendimentos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="logo" href="#inicio"><span class="logo-symbol">SI</span><span><b>Fila</b>Saúde<small>gestão de atendimento</small></span></a>
+    <div class="side-label">MENU PRINCIPAL</div>
+    <nav id="mainNav">
+      <a class="active" href="#inicio"><span>⌂</span> Visão geral</a>
+      <a href="#solicitacao"><span>＋</span> Nova solicitação</a>
+      <a href="#consulta"><span>⌕</span> Consultar protocolo</a>
+      <a href="#fila"><span>≡</span> Fila de atendimento</a>
+      <a href="#gestor"><span>▦</span> Indicadores</a>
+    </nav>
+    <div class="side-bottom">
+      <div class="mini-note"><strong>Protótipo acadêmico</strong><span>Use apenas dados fictícios.</span></div>
+      <button class="theme-btn" id="themeBtn">◐ <span>Alternar aparência</span></button>
+    </div>
+  </aside>
+
+  <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  <main class="content">
+    <section id="inicio" class="top-section">
+      <div class="topline"><div><span class="kicker">CENTRAL DE ATENDIMENTO</span><h1>SaúdeIngá <em>digital.</em></h1><p>Organize solicitações, acompanhe prioridades e dê mais transparência ao atendimento público.</p></div><div class="today"><span class="pulse"></span> SISTEMA DEMONSTRATIVO</div></div>
+
+      <div class="overview-grid">
+        <div class="welcome-card">
+          <div class="welcome-content"><span class="tiny-tag">STATUS DA FILA</span><h2>Controle em um só lugar.</h2><p>O cidadão registra a demanda e recebe um protocolo. A gestão visualiza a fila e seus indicadores.</p><div class="welcome-actions"><a class="action-main" href="#solicitacao">+ Registrar atendimento</a><a class="action-link" href="#consulta">Consultar protocolo →</a></div></div>
+          <div class="orbit"><div class="orbit-ring"></div><div class="orbit-core">SI</div><span class="orb orb-1">✓</span><span class="orb orb-2">⌁</span><span class="orb orb-3">+</span></div>
+        </div>
+        <div class="total-card"><div class="card-label"><span>Solicitações</span><span class="dot"></span></div><strong id="heroTotal">0</strong><p>registradas neste navegador</p><div class="small-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      </div>
+
+      <div class="metric-row">
+        <div class="metric"><span class="metric-icon blue">◉</span><div><small>CONSULTAS</small><b id="heroConsultas">0</b></div></div>
+        <div class="metric"><span class="metric-icon purple">◇</span><div><small>EXAMES</small><b id="heroExames">0</b></div></div>
+        <div class="metric"><span class="metric-icon orange">!</span><div><small>ALTA PRIORIDADE</small><b id="heroPrioridades">0</b></div></div>
+        <div class="metric queue-health"><div><small>PRESSÃO DA FILA</small><b id="queuePercent">0%</b></div><div class="health-track"><i id="queueProgress"></i></div><span>proporção de demandas prioritárias</span></div>
+      </div>
+    </section>
+
+    <section class="section problem-section">
+      <div class="section-title"><span class="kicker">POR QUE EXISTE?</span><h2>Uma fila pode ser mais transparente.</h2><p>O SaúdeIngá foi pensado para transformar uma experiência confusa em um fluxo simples de acompanhar.</p></div>
+      <div class="problem-grid">
+        <article><span class="number">01</span><div><h3>Menos incerteza</h3><p>O cidadão recebe um protocolo e consegue consultar a situação da solicitação.</p></div></article>
+        <article><span class="number">02</span><div><h3>Mais organização</h3><p>Demandas ficam estruturadas por tipo, serviço e prioridade.</p></div></article>
+        <article><span class="number">03</span><div><h3>Melhor visão</h3><p>Indicadores ajudam a enxergar o volume e as necessidades da fila.</p></div></article>
+      </div>
+    </section>
+
+    <section id="solicitacao" class="section form-section">
+      <div class="section-title compact"><span class="kicker">01 / NOVA SOLICITAÇÃO</span><h2>Registre uma demanda.</h2><p>Preencha o formulário usando informações totalmente fictícias.</p></div>
+      <div class="workspace-card">
+        <div class="form-intro"><span class="big-symbol">＋</span><h3>Novo atendimento</h3><p>Ao finalizar, o sistema gera um protocolo exclusivo para este navegador.</p><div class="steps-mini"><span class="current">1</span><i></i><span>2</span><i></i><span>3</span></div><small>Dados → prioridade → protocolo</small></div>
+        <div class="form-area"><form id="requestForm">
+          <div class="form-grid">
+            <label>Nome fictício<input id="nome" type="text" maxlength="80" placeholder="Ex.: João da Silva" required></label>
+            <label>Tipo de atendimento<select id="tipo" required><option value="">Selecione</option><option>Consulta</option><option>Exame</option><option>Encaminhamento</option></select></label>
+            <label>Especialidade / serviço<input id="especialidade" type="text" maxlength="80" placeholder="Ex.: Cardiologia" required></label>
+            <label>Nível de prioridade<select id="prioridade" required><option value="">Selecione</option><option>Baixa</option><option>Normal</option><option>Alta</option><option>Urgente</option></select></label>
+          </div>
+          <label>Observação <span class="muted">opcional</span><textarea id="observacao" rows="3" maxlength="250" placeholder="Descrição breve usando dados fictícios"></textarea></label>
+          <button class="submit-btn" type="submit">Gerar protocolo <span>↗</span></button>
+        </form><div id="registerResult" class="result hidden" role="status"></div></div>
+      </div>
+    </section>
+
+    <section id="consulta" class="section lookup-section">
+      <div class="lookup-wrap"><div class="section-title compact"><span class="kicker">02 / ACOMPANHAMENTO</span><h2>Onde está minha solicitação?</h2><p>Digite o protocolo para visualizar o status.</p></div>
+        <div class="lookup-box"><span>SI</span><input id="protocolInput" type="text" placeholder="Digite seu protocolo, ex.: FS-123456" aria-label="Protocolo"><button id="searchBtn">Consultar <b>→</b></button></div><div id="searchResult"></div>
+      </div>
+    </section>
+
+    <section id="fila" class="section queue-section">
+      <div class="section-title row-title"><div><span class="kicker">03 / FILA DE ATENDIMENTO</span><h2>Demandas em acompanhamento.</h2><p>Visão demonstrativa das solicitações armazenadas no navegador.</p></div><button class="outline-btn" id="clearDataBtn">Limpar dados de teste</button></div>
+      <div class="stats-strip"><div><small>TOTAL</small><b id="total">0</b></div><div><small>CONSULTAS</small><b id="consultas">0</b></div><div><small>EXAMES</small><b id="exames">0</b></div><div><small>ALTA / URGENTE</small><b id="prioridades">0</b></div></div>
+      <div class="filters"><div class="search-filter"><span>⌕</span><input id="filterInput" type="search" placeholder="Pesquisar protocolo ou serviço..."></div><select id="filterType"><option value="">Todos os tipos</option><option>Consulta</option><option>Exame</option><option>Encaminhamento</option></select><select id="filterPriority"><option value="">Todas as prioridades</option><option>Baixa</option><option>Normal</option><option>Alta</option><option>Urgente</option></select></div>
+      <div class="table-shell"><table><thead><tr><th>PROTOCOLO</th><th>TIPO</th><th>SERVIÇO</th><th>PRIORIDADE</th><th>STATUS</th><th>ESTIMATIVA</th></tr></thead><tbody id="queueBody"></tbody></table></div>
+      <p class="data-note">ⓘ Os registros ficam apenas no <code>localStorage</code> deste navegador. Nenhum dado é enviado para um servidor.</p>
+    </section>
+
+    <section id="gestor" class="section indicators-section">
+      <div class="section-title compact"><span class="kicker">04 / VISÃO DO GESTOR</span><h2>Indicadores que contam a história da fila.</h2><p>Uma futura versão poderia conectar estes indicadores a dados reais e seguros.</p></div>
+      <div class="indicator-grid"><article><span>↗</span><h3>Demanda</h3><p>Volume de solicitações por período, serviço e tipo de atendimento.</p></article><article><span>!</span><h3>Prioridades</h3><p>Identificação rápida de demandas que precisam de atenção.</p></article><article><span>⌁</span><h3>Tempo de espera</h3><p>Acompanhamento de estimativas para apoiar decisões.</p></article><article><span>✓</span><h3>Transparência</h3><p>Mais informação para quem está aguardando atendimento.</p></article></div>
+    </section>
+
+    <section class="final-banner"><div><span class="kicker">PROPOSTA FILASAÚDE</span><h2>Tecnologia para organizar. Informação para cuidar.</h2><p>Protótipo desenvolvido para fins educacionais.</p></div><div class="final-mark">SI<span>+</span></div></section>
+    <footer><div class="footer-logo"><span>SI</span><strong>SaúdeIngá</strong></div><p>Protótipo acadêmico • HTML • CSS • JavaScript • LocalStorage • GitHub • Render</p><p>Desenvolvimento individual — Nicolas Gabriel</p></footer>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>
